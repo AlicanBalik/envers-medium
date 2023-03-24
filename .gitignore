@@ -5,6 +5,7 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 src/main/resources/META-INF/build-info.properties
+.DS_Store
 
 ### STS ###
 .apt_generated

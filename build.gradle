@@ -25,6 +25,15 @@ dependencies {
     implementation 'org.mapstruct:mapstruct:1.5.3.Final'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.testcontainers:testcontainers'
+    testImplementation 'org.testcontainers:junit-jupiter'
+    testImplementation 'org.testcontainers:postgresql'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.testcontainers:testcontainers-bom:1.17.6"
+    }
 }
 
 tasks.named('test') {
