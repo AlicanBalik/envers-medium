@@ -12,15 +12,17 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+// Annotation for a JPA test that focuses only on JPA components.
 @DataJpaTest
+// Annotation used to declare a custom display name for the annotated test class or test method.
 @DisplayName("User repository tests.")
-public class UserRepositoryTest extends BaseRepositoryTest {
+class UserRepositoryTest extends BaseRepositoryTest {
 
     @Autowired
     private UserRepository userRepository;
 
     @AfterEach
-    public void cleanup() {
+    void tearDown() {
         userRepository.deleteAll();
     }
 
@@ -31,10 +33,13 @@ public class UserRepositoryTest extends BaseRepositoryTest {
         userEntity.setSurname("My surname");
         userEntity.setEmail("name@surname.com");
 
+        // Saves & flushes the entity instantly.
         userRepository.saveAndFlush(userEntity);
 
+        // Returns all entities to check the actual result with the expected.
         List<UserEntity> userEntities = userRepository.findAll();
 
+        // Checks if the table has only one record, which we have just created.
         assertEquals(1, userEntities.size());
     }
 }
