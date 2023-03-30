@@ -20,14 +20,3 @@ public class TestAuditingConfig {
         return () -> Optional.of(TEST_AUDITOR);
     }
 }
-
-/*
- @Autowired
-    private AuditorAware<String> auditorAware;
-
-    @Test
-	public void testCurrentAuditor() {
-        String currentAuditor = auditorAware.getCurrentAuditor().get();
-        assertEquals(TEST_AUDITOR, currentAuditor);
-	}
- */
