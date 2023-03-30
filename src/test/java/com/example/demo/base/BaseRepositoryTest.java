@@ -42,7 +42,7 @@ public abstract class BaseRepositoryTest {
         public void initialize(@NotNull ConfigurableApplicationContext applicationContext) {
             TestPropertySourceUtils.addInlinedPropertiesToEnvironment(
                     applicationContext,
-                    "spring.test.database.replace=none",
+                    "spring.test.database.replace=none", // Tells Spring Boot not to start in-memory db for tests.
                     "spring.datasource.url=" + database.getJdbcUrl(),
                     "spring.datasource.username=" + database.getUsername(),
                     "spring.datasource.password=" + database.getPassword()

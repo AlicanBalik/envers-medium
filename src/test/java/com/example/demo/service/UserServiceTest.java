@@ -52,7 +52,7 @@ class UserServiceTest extends BaseServiceTest {
 
         UserDto userTwo = this.createUserDto(email);
 
-        assertEquals(userOne.getEmail(), userTwo.getEmail(), "Emails must be same to complete the test.");
+        assertEquals(userOne.getEmail(), userTwo.getEmail(), "Emails must be same to check if the email exists.");
 
         EntityExistsException thrown = assertThrows(EntityExistsException.class,
                 () -> userService.create(userTwo), "Expected javax.persistence.EntityExistsException while registering the 2nd user.");
